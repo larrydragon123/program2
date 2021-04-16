@@ -11,6 +11,7 @@ let borderUISize = game.config.height/15;
 let borderPadding = borderUISize/3;
 let starSpeed=4;
 let score=0;
+let highScore=0;
 
 //reserve ketboard bindings
 let keyF, keyR, keyLEFT, keyRIGHT;

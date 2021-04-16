@@ -33,6 +33,21 @@ class Menu extends Phaser.Scene {
     this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + borderPadding, 'Press <- for Novice or -> for Expert', menuConfig).setOrigin(0.5);
 
 
+    //display high score
+    let highScoreConfig = {
+      fontFamily: 'Courier',
+      fontSize: '28px',
+      backgroundColor: '#F3B141',
+      color: '#843605',
+      align: 'left',
+      padding: {
+        top: 5,
+        bottom: 5,
+      },
+      fixedWidth: 300
+    }
+    this.scoreHigh = this.add.text(borderUISize + borderPadding * 25, borderUISize + borderPadding * 2, 'Highest Score: '+ score, highScoreConfig);
+
     // define keys
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);

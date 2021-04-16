@@ -31,6 +31,7 @@ class Menu extends Phaser.Scene {
     menuConfig.backgroundColor = '#00FF00';
     menuConfig.color = '#000';
     this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + borderPadding, 'Press <- for Novice or -> for Expert', menuConfig).setOrigin(0.5);
+    this.add.text(game.config.width / 2, game.config.height / 2 + (borderUISize + borderPadding)*2, 'Press T for Two Players Mod', menuConfig).setOrigin(0.5);
 
 
     //display high score
@@ -51,10 +52,25 @@ class Menu extends Phaser.Scene {
     // define keys
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    keyT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.T);
+    keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
   }
 
 
   update() {
+    let menuConfig = {
+      frontFamily: 'Courier',
+      frontSize: '28px',
+      backgroundColor: '#F3B141',
+      color: '#843605',
+      align: 'right',
+      padding: {
+        top: 5,
+        bottom: 5,
+      },
+      fixedWidth: 0
+    }
     if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
       // easy mode
       game.settings = {
@@ -70,9 +86,19 @@ class Menu extends Phaser.Scene {
         spaceshipSpeed: 4,
         gameTimer: 45000
       }
+      
       this.sound.play('sfx_select');
       this.scene.start('playScene');
     }
+    
+    if (Phaser.Input.Keyboard.JustDown(keyT)) {
+      twoPlayers=true;
+      this.sound.play('sfx_select');
+      this.add.text(game.config.width / 2, game.config.height / 2 + (borderUISize + borderPadding)*4, 'Two Players Mod Activated', menuConfig).setOrigin(0.5);
+
+    }
+
+
   }
 
 }

@@ -12,6 +12,7 @@ let borderPadding = borderUISize/3;
 let starSpeed=4;
 let score=0;
 let highScore=0;
+let twoPlayers=false;
 
 //reserve ketboard bindings
-let keyF, keyR, keyLEFT, keyRIGHT;
+let keyF, keyR, keyLEFT, keyRIGHT, keyT, keyW, keyA, keyD;

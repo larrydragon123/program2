@@ -40,7 +40,7 @@ class Play extends Phaser.Scene {
 
     //add score
     // initialize score
-    this.highest = 0;
+    
     this.p1Score = 0;
 
 
@@ -90,7 +90,7 @@ class Play extends Phaser.Scene {
       },
       fixedWidth: 300
     }
-    this.scoreHigh = this.add.text(borderUISize + borderPadding * 25, borderUISize + borderPadding * 2, 'Highest Score: '+ this.highest, highScoreConfig);
+    this.scoreHigh = this.add.text(borderUISize + borderPadding * 25, borderUISize + borderPadding * 2, 'Highest Score: '+ highScore, highScoreConfig);
 
 
     // GAME OVER flag
@@ -130,21 +130,21 @@ class Play extends Phaser.Scene {
     if (this.checkCollision(this.p1Rocket, this.ship03)) {
       this.p1Rocket.reset();
       this.shipExplode(this.ship03);
-      score += 3;
+      // score += 30;
       // this.add.text(50,50,"Score: "+score);
 
     }
     if (this.checkCollision(this.p1Rocket, this.ship02)) {
       this.p1Rocket.reset();
       this.shipExplode(this.ship02);
-      score += 2;
+      // score += 20;
       // this.add.text(50,50,"Score: "+score);
 
     }
     if (this.checkCollision(this.p1Rocket, this.ship01)) {
       this.p1Rocket.reset();
       this.shipExplode(this.ship01);
-      score += 1;
+      // score += 10;
       // this.add.text(50,50,"Score: "+score);
 
     }
@@ -177,9 +177,9 @@ class Play extends Phaser.Scene {
     });
     // score add and repaint
     this.p1Score += ship.points;
-    if(this.highest < this.p1Score){
-      this.highest = this.p1Score;
-      this.scoreHigh.text = 'Higest Score: ' + this.highest;
+    if(highScore < this.p1Score){
+      highScore = this.p1Score;
+      this.scoreHigh.text = 'Higest Score: ' + highScore;
     }
     this.scoreLeft.text = this.p1Score;
     this.sound.play('sfx_explosion');

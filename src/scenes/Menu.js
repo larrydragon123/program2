@@ -46,7 +46,7 @@ class Menu extends Phaser.Scene {
       },
       fixedWidth: 300
     }
-    this.scoreHigh = this.add.text(borderUISize + borderPadding * 25, borderUISize + borderPadding * 2, 'Highest Score: '+ score, highScoreConfig);
+    this.scoreHigh = this.add.text(borderUISize + borderPadding * 25, borderUISize + borderPadding * 2, 'Highest Score: '+ highScore, highScoreConfig);
 
     // define keys
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);

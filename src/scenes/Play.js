@@ -6,8 +6,10 @@ class Play extends Phaser.Scene {
   preload() {
     //load imagines
     this.load.image('rocket', './assets/rocket.png');
+    this.load.image('rocket2', './assets/rocket2.png');
     this.load.image('spaceship', './assets/spaceship.png');
     this.load.image('starfield', './assets/starfield.png');
+
     //load spritesheet
     this.load.spritesheet('explosion', './assets/explosion.png', {
       frameWidth: 64,
@@ -34,7 +36,7 @@ class Play extends Phaser.Scene {
     // add rocket(player 1 2)
     this.p1Rocket = new Rocket(this, game.config.width / 2 + 5, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
     if(twoPlayers == true){
-    this.p2Rocket = new Rocket2(this, game.config.width / 2 - 5, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
+    this.p2Rocket = new Rocket2(this, game.config.width / 2 - 5, game.config.height - borderUISize - borderPadding, 'rocket2').setOrigin(0.5, 0);
     }
 
     // add spaceship (x3)
@@ -83,9 +85,9 @@ class Play extends Phaser.Scene {
         top: 5,
         bottom: 5,
       },
-      fixedWidth: 100
+      fixedWidth: 110
     }
-    this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig);
+    this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, "P1:"+this.p1Score, scoreConfig);
 
     if(twoPlayers == true){let score2Config = {
       fontFamily: 'Courier',
@@ -97,9 +99,9 @@ class Play extends Phaser.Scene {
         top: 5,
         bottom: 5,
       },
-      fixedWidth: 100
+      fixedWidth: 110
     }
-    this.scoreRight = this.add.text(borderUISize + borderPadding*10, borderUISize + borderPadding * 2, this.p2Score, score2Config);}
+    this.scoreRight = this.add.text(borderUISize + borderPadding*13, borderUISize + borderPadding * 2, "P2:"+this.p2Score, score2Config);}
 
 
     //display high score
@@ -161,7 +163,7 @@ class Play extends Phaser.Scene {
       
       this.shipExplode(this.ship03);
       this.p1Score += this.ship03.points;
-      this.scoreLeft.text = this.p1Score;
+      this.scoreLeft.text = "P1:"+this.p1Score;
       // score += 30;
       // this.add.text(50,50,"Score: "+score);
 
@@ -170,7 +172,7 @@ class Play extends Phaser.Scene {
       this.p1Rocket.reset();
       this.shipExplode(this.ship02);
       this.p1Score += this.ship02.points;
-      this.scoreLeft.text = this.p1Score;
+      this.scoreLeft.text = "P1:"+this.p1Score;
       // score += 20;
       // this.add.text(50,50,"Score: "+score);
 
@@ -179,7 +181,7 @@ class Play extends Phaser.Scene {
       this.p1Rocket.reset();
       this.shipExplode(this.ship01);
       this.p1Score += this.ship01.points;
-      this.scoreLeft.text = this.p1Score;
+      this.scoreLeft.text = "P1:"+this.p1Score;
       // score += 10;
       // this.add.text(50,50,"Score: "+score);
 
@@ -189,7 +191,7 @@ class Play extends Phaser.Scene {
       this.p2Rocket.reset();
       this.shipExplode(this.ship03);
       this.p2Score += this.ship03.points;
-      this.scoreRight.text = this.p2Score;
+      this.scoreRight.text = "P2:"+this.p2Score;
       // score += 30;
       // this.add.text(50,50,"Score: "+score);
 
@@ -198,7 +200,7 @@ class Play extends Phaser.Scene {
       this.p2Rocket.reset();
       this.shipExplode(this.ship02);
       this.p2Score += this.ship02.points;
-      this.scoreRight.text = this.p2Score;
+      this.scoreRight.text = "P2:"+this.p2Score;
       // score += 20;
       // this.add.text(50,50,"Score: "+score);
 
@@ -207,7 +209,7 @@ class Play extends Phaser.Scene {
       this.p2Rocket.reset();
       this.shipExplode(this.ship01);
       this.p2Score += this.ship01.points;
-      this.scoreRight.text = this.p2Score;
+      this.scoreRight.text = "P2:"+this.p2Score;
       // score += 10;
       // this.add.text(50,50,"Score: "+score);
 

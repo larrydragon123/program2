@@ -15,4 +15,4 @@ let highScore=0;
 let twoPlayers=false;
 
 //reserve ketboard bindings
-let keyF, keyR, keyLEFT, keyRIGHT, keyT, keyW, keyA, keyD;
+let keyUP, keyR, keyLEFT, keyRIGHT, keyT, keyW, keyA, keyD;

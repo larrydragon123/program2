@@ -11,7 +11,7 @@ class Play extends Phaser.Scene {
     //load spritesheet
     this.load.spritesheet('explosion', './assets/explosion.png', {
       frameWidth: 64,
-      frameHeight: 32,
+      frameHeight: 64,
       starFrame: 0,
       endFrame: 9
 
@@ -52,7 +52,7 @@ class Play extends Phaser.Scene {
 
 
     //define keys
-    keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+    keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
@@ -123,7 +123,7 @@ class Play extends Phaser.Scene {
     // 60-second play clock
     scoreConfig.fixedWidth = 0;
     // if(twoPlayers == true){score2Config.fixedWidth = 0;}
-    this.clock = this.time.delayedCall(6000, () => {
+    this.clock = this.time.delayedCall(60000, () => {
       this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER', scoreConfig).setOrigin(0.5);
       this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'Press (R) to Restart or ← for Menu', scoreConfig).setOrigin(0.5);
       this.gameOver = true;
